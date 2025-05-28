@@ -1,0 +1,185 @@
+.page-main-view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: inherit;
+    flex-direction: row;
+    border-radius: 20px;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+.page-main-view-dark {
+    background-color: rgb(15, 15, 15);
+}
+
+.page-main-view-light {
+    background-color: rgb(240, 240, 240);
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.05);
+}
+
+.remarked-dark {
+    color: rgb(63, 0, 105);
+}
+
+.remarked-light {
+    color: rgb(255, 104, 17);
+}
+
+.text-box {
+    padding: 20px;
+    background-color: inherit;
+    color: inherit;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+
+.text-box>h1 {
+    margin: 0px;
+}
+
+.text-box-dark>p {
+    color: gray;
+}
+
+.text-box-buttons-light>button {
+    border: none;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.search-streaming-nav-bar {
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(10, 10, 10);
+    padding: 5px;
+}
+
+.search-streaming-nav-bar>button {
+    border: none;
+}
+
+.search-streaming-nav-bar-dark {
+    border-radius: 20px;
+}
+
+.search-streaming-nav-bar-light {
+    background-color: white;
+    border-radius: 20px;
+}
+
+.options {
+    padding: 10px;
+    width: 300px;
+    height: 200px;
+    overflow-y: scroll;
+    border-radius: inherit;
+    scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+    scrollbar-width: thin;
+}
+
+.container-dark {
+    background-color: rgb(10, 10, 10);
+    border-radius: inherit;
+}
+
+.container-light>button {
+    background-color: white;
+    border-radius: 15px;
+    border: none;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.container>button {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 95%;
+}
+
+.container-dark>button {
+    background-color: white;
+    color: black;
+}
+
+.container-light {}
+
+.options::-webkit-scrollbar {
+    width: 8px;
+}
+
+.options::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.options::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+}
+
+.options-dark {
+    background-color: inherit;
+}
+
+.pressed-button-dark {
+    background-color: rgb(20, 20, 20);
+}
+
+.unpressed-button-dark {
+    background-color: inherit;
+}
+
+.unpressed-button-light {
+    background-color: inherit;
+}
+
+.pressed-button-light {
+    background-color: rgb(230, 230, 230);
+}
+
+.options-light {}
+
+.welcome-page {
+    display: flex;
+    flex: 1;
+    padding: 10px;
+    background-image: url("../../../assets/images/dark_theme_background.jpg");
+    min-width: 250px;
+    min-height: 450px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    justify-content: center;
+}
+
+.clock {
+    display: flex;
+    border-radius: 30px;
+    height: fit-content;
+    padding: 0px;
+    margin-top: 30px;
+    padding: 3px;
+    font-size: medium;
+    background-color: white;
+    color: black;
+}
+
+.paragraph-remarked {
+    color: inherit;
+    text-decoration: underline;
+}
+
+.normal-paragraph-dark {
+    color: gray
+}
+
+.normal-paragraph-light {
+    color: inherit
+}
+
+.search-section {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: inherit;
+}

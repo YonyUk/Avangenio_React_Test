@@ -1,0 +1,54 @@
+.theme-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.theme-box>button {
+    border: none;
+}
+
+.topnavbar {
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+}
+
+.login-register-box {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 15px;
+}
+
+.login-register-box-light>button {
+    border: none;
+}
+
+.topnavbar-dark {
+    background-color: rgb(10, 10, 10);
+    color: white;
+}
+
+.topnavbar-light {
+    background-color: rgb(230, 230, 230);
+    color: rgb(10, 46, 40);
+}
+
+button {
+    border-radius: 15px;
+    background-color: inherit;
+    color: inherit;
+    border-style: groove;
+    margin-left: 5px;
+    margin-right: 5px;
+    transition: all 0.3s;
+    height: fit-content;
+    padding: 10px;
+}
+
+button:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}
