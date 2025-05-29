@@ -1,0 +1,7 @@
+.category-item-light {
+    background-color: rgb(245, 245, 245);
+    padding: 10px;
+    box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 7px;
+    transition: all 0.3s;
+}

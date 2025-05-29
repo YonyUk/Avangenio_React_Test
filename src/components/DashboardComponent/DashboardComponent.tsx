@@ -1,5 +1,6 @@
 import { Theme } from "../../globals/Themes"
 import { getThemeName } from "../../globals/Tools"
+import { Categories } from "./CategoriesComponent/CategoriesComponent"
 import './DashboardComponent.css'
 import { PageMainView } from "./PageMainViewComponent/PageMainViewComponent"
 
@@ -18,6 +19,9 @@ export const Dashboard = ({ pageTheme, loginPageSetter, registerPageSetter, dash
                 loginPageSetter={loginPageSetter}
                 registerPageSetter={registerPageSetter}
                 dashboardPageSetter={dashboardPageSetter}
+            />
+            <Categories
+                pageTheme={pageTheme}
             />
         </div>
     )

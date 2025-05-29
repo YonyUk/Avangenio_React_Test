@@ -14,6 +14,7 @@
     justify-content: space-between;
     position: fixed;
     width: 100%;
+    z-index: 1;
 }
 
 .login-register-box {
@@ -24,6 +25,10 @@
 
 .login-register-box-light>button {
     border: none;
+}
+
+.login-register-box-dark>button {
+    border: solid 1px rgb(10, 10, 10);
 }
 
 .topnavbar-dark {
@@ -40,7 +45,6 @@ button {
     border-radius: 15px;
     background-color: inherit;
     color: inherit;
-    border-style: groove;
     margin-left: 5px;
     margin-right: 5px;
     transition: all 0.3s;
