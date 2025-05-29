@@ -62,7 +62,7 @@ export const PageMainView = ({ pageTheme, loginPageSetter, registerPageSetter, d
                 <h1>differently</h1>
                 <div style={{ display: "flex", flexDirection: "row" }}>
                     <p className={`normal-paragraph-${theme}`}>gamor now has&nbsp;</p>
-                    <p className="paragraph-remarked"> stream party</p>
+                    <p className="paragraph-remarked"> <b>stream party</b></p>
                     <p className={`normal-paragraph-${theme}`}>&nbsp;platform</p>
                 </div>
                 <div className={`text-box-buttons-${theme}`}>
@@ -100,7 +100,7 @@ export const PageMainView = ({ pageTheme, loginPageSetter, registerPageSetter, d
                             )
                         })}
                     </div>
-                    <button>Nada</button>
+                    <button><b>Search Now</b></button>
                 </div>
             </div>
         </div>

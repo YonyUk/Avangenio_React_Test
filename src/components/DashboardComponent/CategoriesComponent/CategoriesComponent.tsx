@@ -11,16 +11,23 @@ export const Categories = ({ pageTheme }: CategoriesInput) => {
     const theme = getThemeName(pageTheme)
     const categories = getCategories()
     return (
-        <div className={`categories categories-${theme}`}>
-            {categories.map((value, index) => {
-                return (
-                    <CategoryItem
-                        pageTheme={pageTheme}
-                        index={index + 1}
-                        categoryName={value}
-                    />
-                )
-            })}
+        <div className='categories-section'>
+            <h3>Trending Categories</h3>
+            <div className={`categories categories-${theme}`}>
+                {categories.map((value, index) => {
+                    return (
+                        <CategoryItem
+                            pageTheme={pageTheme}
+                            index={index + 1}
+                            categoryName={value}
+                        />
+                    )
+                })}
+                <CategoryItem
+                    pageTheme={pageTheme}
+                    index={-1}
+                    categoryName='All Categories' />
+            </div>
         </div>
     )
 }
@@ -34,6 +41,8 @@ const getCategories = (): string[] => {
         'category5',
         'category6',
         'category7',
-        'category8'
+        'category8',
+        'category9',
+        'category10'
     ]
 } 
