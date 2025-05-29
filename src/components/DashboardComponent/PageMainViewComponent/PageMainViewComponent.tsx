@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Theme } from "../../../globals/Themes"
 import { getThemeName } from "../../../globals/Tools"
 import './PageMainViewComponent.css'
+import { SearchItem } from "../SearchItemComponent/SearchItemComponent"
 
 interface PageMainViewInput {
     pageTheme: Theme
@@ -83,14 +84,21 @@ export const PageMainView = ({ pageTheme, loginPageSetter, registerPageSetter, d
                 </nav>
                 <h3><small>02.</small> Searching Game</h3>
                 <div className={`container container-${theme}`}>
+                    <div className={`container-filter container-filter-${theme}`}>
+                        <h3>COD Warzone</h3>
+                        <button>Filter</button>
+                    </div>
+                    <hr />
                     <div className={`options options-${theme}`}>
-                        <ul>
-                            {getGames().map((value) => {
-                                return (
-                                    <li>{value}</li>
-                                )
-                            })}
-                        </ul>
+                        {getGames().map((value, index) => {
+                            return (
+                                <SearchItem
+                                    index={index + 1}
+                                    name={value}
+                                    pageTheme={pageTheme}
+                                />
+                            )
+                        })}
                     </div>
                     <button>Nada</button>
                 </div>

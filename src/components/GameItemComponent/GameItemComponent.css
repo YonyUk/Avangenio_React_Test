@@ -1,7 +1,0 @@
-.game-item {
-    display: flex;
-    font-family: inherit;
-    justify-content: left;
-    flex-direction: column;
-    border: solid 1px;
-}

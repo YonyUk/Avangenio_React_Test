@@ -1,0 +1,19 @@
+.search-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+button {
+    border-radius: 7px;
+    border: none;
+}
+
+.search-item-light>button {
+    background-color: rgb(220, 220, 220);
+}
+
+.search-item-dark>button {
+    background-color: rgb(20, 20, 20);
+}
