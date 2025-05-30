@@ -26,6 +26,9 @@ function App() {
         <LoginComponent
           isLogin={loginPage}
           pageTheme={pageTheme}
+          loginPageSetter={setLoginPage}
+          registerPageSetter={setRegisterPage}
+          dashboardPageSetter={setDashboardPage}
         />
       }
       {
