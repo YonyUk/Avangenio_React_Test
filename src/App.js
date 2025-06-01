@@ -3,10 +3,11 @@
 import { Dashboard } from './components/DashboardComponent/DashboardComponent';
 import { LoginComponent } from './components/LoginComponent/LoginComponent';
 import { TopNavBar } from './components/TopNavBarComponent/TopNavBarComponent';
-import { Theme } from './globals/Themes';
 import { useState } from 'react';
+import { Theme } from './globals/Themes';
 
 function App() {
+
   const [pageTheme, setPageTheme] = useState(Theme.LIGHT);
   const [loginPage, setLoginPage] = useState(false);
   const [registerPage, setRegisterPage] = useState(false);

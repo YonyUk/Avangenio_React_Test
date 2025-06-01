@@ -3,6 +3,30 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 5px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.name {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: 8px;
+}
+
+.name-light {
+    background-color: rgb(220, 220, 220, 0.4);
+}
+
+.name-dark {
+    background-color: rgb(20, 20, 20, 0.4);
 }
 
 button {
@@ -11,9 +35,26 @@ button {
 }
 
 .search-item-light>button {
-    background-color: rgb(220, 220, 220);
+    background-color: rgb(220, 220, 220, 0.4);
 }
 
 .search-item-dark>button {
-    background-color: rgb(20, 20, 20);
+    background-color: rgb(20, 20, 20, 0.4);
+}
+
+.index {
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 10px;
+}
+
+.index-light {
+    background-color: rgb(220, 220, 220, 0.4);
+}
+
+.index-dark {
+    background-color: rgb(20, 20, 20, 0.4);
 }

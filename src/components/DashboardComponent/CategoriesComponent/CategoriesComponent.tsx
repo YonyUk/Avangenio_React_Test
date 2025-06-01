@@ -6,26 +6,31 @@ import { CategoryItem } from './CategoryItemComponent/CategoryItemComponent'
 
 interface CategoriesInput {
     pageTheme: Theme
+    setGameGenre: (genre: string) => void
 }
 
 interface GameCategory {
-    id: string,
     name: string,
+    slug: string,
     image_background: string
 }
 
-export const Categories = ({ pageTheme }: CategoriesInput) => {
+export const Categories = ({ pageTheme, setGameGenre }: CategoriesInput) => {
     const theme = getThemeName(pageTheme)
     const [categories, setCategories] = useState<GameCategory[]>([])
     useEffect(() => {
         const fecthCategories = async () => {
-            console.log(process.env.REACT_APP_RAWG_API_KEY)
-            const response = await fetch(`https://api.rawg.io/api/genres?key=${process.env.REACT_APP_RAWG_API_KEY}`)
-            const data = await response.json()
-            setCategories(data.results)
+            try {
+                const response = await fetch(`https://api.rawg.io/api/genres?key=${process.env.REACT_APP_RAWG_API_KEY}`)
+                const data = await response.json()
+                setCategories(data.results)
+            } catch (error) {
+                console.log(error)
+            }
         };
         fecthCategories()
     }, [])
+
     return (
         <div className='categories-section'>
             <h3>Trending Categories</h3>
@@ -33,6 +38,8 @@ export const Categories = ({ pageTheme }: CategoriesInput) => {
                 {categories.map((value, index) => {
                     return (
                         <CategoryItem
+                            slug={value.slug}
+                            setGameGenre={setGameGenre}
                             pageTheme={pageTheme}
                             index={index + 1}
                             categoryName={value.name}
@@ -40,12 +47,6 @@ export const Categories = ({ pageTheme }: CategoriesInput) => {
                         />
                     )
                 })}
-                <CategoryItem
-                    pageTheme={pageTheme}
-                    index={-1}
-                    categoryName='All Categories'
-                    image_url=''
-                />
             </div>
         </div>
     )

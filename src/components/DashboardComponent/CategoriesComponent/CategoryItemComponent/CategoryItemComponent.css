@@ -63,14 +63,15 @@
 
 .category-item:hover {
     cursor: pointer;
+    border: solid 1px;
 }
 
 .category-item-dark:hover {
-    background-color: rgb(25, 25, 25);
+    background-color: rgb(245, 245, 245);
 }
 
 .category-item-light:hover {
-    background-color: rgb(220, 220, 220);
+    background-color: rgb(20, 20, 20);
 }
 
 h2 {
