@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.4e310107.css",
-    "main.js": "/static/js/main.c5d20674.js",
-    "static/js/787.6b802637.chunk.js": "/static/js/787.6b802637.chunk.js",
-    "static/media/dark_theme_background.jpg": "/static/media/dark_theme_background.4cf94e500dd57987f05e.jpg",
-    "index.html": "/index.html",
-    "main.4e310107.css.map": "/static/css/main.4e310107.css.map",
-    "main.c5d20674.js.map": "/static/js/main.c5d20674.js.map",
-    "787.6b802637.chunk.js.map": "/static/js/787.6b802637.chunk.js.map"
+    "main.css": "/Avangenio_React_Test/static/css/main.c8474074.css",
+    "main.js": "/Avangenio_React_Test/static/js/main.f77ff73b.js",
+    "static/js/787.6b802637.chunk.js": "/Avangenio_React_Test/static/js/787.6b802637.chunk.js",
+    "static/media/dark_theme_background.jpg": "/Avangenio_React_Test/static/media/dark_theme_background.4cf94e500dd57987f05e.jpg",
+    "index.html": "/Avangenio_React_Test/index.html",
+    "main.c8474074.css.map": "/Avangenio_React_Test/static/css/main.c8474074.css.map",
+    "main.f77ff73b.js.map": "/Avangenio_React_Test/static/js/main.f77ff73b.js.map",
+    "787.6b802637.chunk.js.map": "/Avangenio_React_Test/static/js/787.6b802637.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4e310107.css",
-    "static/js/main.c5d20674.js"
+    "static/css/main.c8474074.css",
+    "static/js/main.f77ff73b.js"
   ]
 }
