@@ -1,34 +1,60 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Theme } from "../../../globals/Themes"
-import { getThemeName } from "../../../globals/Tools"
+import { getThemeName, TWITCH_MATCHS_API_URL, TWITCH_STREAMS_API_URL, TWITCH_TOURNAMENTS_API_URL } from "../../../globals/Tools"
 import './PageMainViewComponent.css'
 import { SearchItem } from "../SearchItemComponent/SearchItemComponent"
-import { Game } from "../../../globals/models"
+import { ClientCredentials, Game, StreamQueryResult, TwitchUserSearchResult } from "../../../globals/models"
 
 interface PageMainViewInput {
     pageTheme: Theme
     loginPageSetter: (page: boolean) => void
     registerPageSetter: (page: boolean) => void
     dashboardPageSetter: (page: boolean) => void
-    games: Game[]
     gameUpdater: () => void
     pageGame: number
     pageGameSetter: (value: number) => void
+    credentials: ClientCredentials
 }
-
-
 
 const updateTime = (setTime: (time: string) => void) => {
     const now = new Date().toLocaleTimeString()
     setTime(now)
 }
 
-export const PageMainView = ({ pageTheme, pageGame, pageGameSetter, games, gameUpdater, loginPageSetter, registerPageSetter, dashboardPageSetter }: PageMainViewInput) => {
+export const PageMainView = ({ pageTheme, credentials, pageGame, pageGameSetter, gameUpdater, loginPageSetter, registerPageSetter, dashboardPageSetter }: PageMainViewInput) => {
     const theme = getThemeName(pageTheme);
     const [party_pressed, setPartyPressed] = useState("unpressed")
     const [match_pressed, setMatchPressed] = useState("unpressed")
-    const [streams_pressed, setStreamPressed] = useState("unpressed")
+    const [streams_pressed, setStreamPressed] = useState("pressed")
     const [time, setTime] = useState((new Date()).toLocaleTimeString())
+    const [listItems, SetListItems] = useState<StreamQueryResult[]>([])
+    const [paginationCursor, setPaginationCursor] = useState('')
+    const [twitchURL, setTwitchURL] = useState(`${TWITCH_STREAMS_API_URL}?game_id=21779&first=10`)
+    const [usersAdded, setUserAdded] = useState<TwitchUserSearchResult[]>([])
+
+    const fetch_streams = async () => {
+        SetListItems([])
+        const response = await fetch(twitchURL, {
+            headers: {
+                'Client-ID': `${process.env.REACT_APP_TWITCH_CLIENT_ID}`,
+                'Authorization': `Bearer ${credentials.access_token}`
+            }
+        })
+        const data = await response.json()
+        SetListItems(data.data)
+        setPaginationCursor(data.pagination.cursor)
+        if (streams_pressed === 'pressed') {
+            setTwitchURL(`${TWITCH_STREAMS_API_URL}?game_id=21779&first=10&after=${paginationCursor}`)
+        } else if (match_pressed === 'pressed') {
+            setTwitchURL(`${TWITCH_STREAMS_API_URL}?league_id=509658&first=10&after=${paginationCursor}`)
+        } else {
+            setTwitchURL(`${TWITCH_STREAMS_API_URL}?game_id=21779&first=10&type=live&after=${paginationCursor}`)
+        }
+    }
+
+    useEffect(() => {
+        fetch_streams()
+    }, [])
 
     setInterval(() => updateTime(setTime), 1000)
     const on_create_account = () => {
@@ -47,18 +73,28 @@ export const PageMainView = ({ pageTheme, pageGame, pageGameSetter, games, gameU
         setPartyPressed("pressed")
         setMatchPressed("unpressed")
         setStreamPressed("unpressed")
+        setTwitchURL(`${TWITCH_STREAMS_API_URL}?game_id=21779&first=10&type=live`)
+        setPaginationCursor('')
     }
 
     const on_match = () => {
         setMatchPressed("pressed")
         setPartyPressed("unpressed")
         setStreamPressed("unpressed")
+        setTwitchURL(`${TWITCH_STREAMS_API_URL}?game_id=509658&first=10`)
+        setPaginationCursor('')
     }
 
     const on_streams = () => {
         setStreamPressed("pressed")
         setMatchPressed("unpressed")
         setPartyPressed("unpressed")
+        setTwitchURL(`${TWITCH_STREAMS_API_URL}?game_id=21779&first=10`)
+        setPaginationCursor('')
+    }
+
+    const add_user = (user: TwitchUserSearchResult) => {
+        setUserAdded([...usersAdded, user])
     }
 
     return (
@@ -79,8 +115,19 @@ export const PageMainView = ({ pageTheme, pageGame, pageGameSetter, games, gameU
                 </div>
             </div>
             <div className="welcome-page">
-                <div className="clock">
-                    {time}
+                <center>
+                    <div className="clock">
+                        {time}
+                    </div>
+                </center>
+                <div className="users-added">
+                    {usersAdded.map((user) => {
+                        return (
+                            <div className="user-image-added">
+                                <img src={user.profile_image_url} alt="loading" />
+                            </div>
+                        )
+                    })}
                 </div>
             </div>
             <div className="search-section">
@@ -98,20 +145,20 @@ export const PageMainView = ({ pageTheme, pageGame, pageGameSetter, games, gameU
                     </div>
                     <hr />
                     <div className={`options options-${theme}`}>
-                        {games.map((value, index) => {
+                        {listItems.map((value, index) => {
                             return (
                                 <SearchItem
                                     index={index + 1}
-                                    name={value.name}
                                     pageTheme={pageTheme}
-                                    image_url={value.background_image}
+                                    stream_query_result={value}
+                                    credentials={credentials}
+                                    addUserFunction={add_user}
                                 />
                             )
                         })}
                     </div>
                     <button onClick={() => {
-                        gameUpdater();
-                        pageGameSetter(pageGame + 1)
+                        fetch_streams()
                     }}><b>Search Now</b></button>
                 </div>
             </div>
