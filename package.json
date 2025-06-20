@@ -1,10 +1,6 @@
 {
   "name": "LandingPageTour",
-<<<<<<< HEAD
-  "homepage":"https://yonyuk.github.io/Avangenio_React_Test",
-=======
-  "homepage":"https://yonyuk.github.io/Avangenio_ReactTest",
->>>>>>> 016b109bf9d6d73e67d390bf829f836652e5c775
+  "homepage": "https://yonyuk.github.io/Avangenio_React_Test",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -21,8 +17,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy":"npm run build",
-    "deploy":"gh-pages -d build"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
