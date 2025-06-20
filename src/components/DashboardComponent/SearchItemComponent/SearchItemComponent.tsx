@@ -47,8 +47,8 @@ export const SearchItem = ({ addUserFunction, index, credentials, pageTheme, str
                 <img src={userData?.profile_image_url} alt="loading" />
             </div>
             <div className={`name name-${theme}`} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
-                {(name.length < 8 && !hover) && <><b>{name}</b></>}
-                {(name.length >= 8 && !hover) && <><b>{name.substring(0, 8)}...</b></>}
+                {(name.length < 7 && !hover) && <><b>{name}</b></>}
+                {(name.length >= 7 && !hover) && <><b>{name.substring(0, 6)}...</b></>}
                 {hover && <p><b>{name}</b></p>}
             </div>
             <button onClick={() => {
